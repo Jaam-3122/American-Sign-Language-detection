@@ -1,0 +1,226 @@
+/* --- GLOBAL RESET --------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #e0f2fe, #c7d2fe, #e9d5ff);
+  min-height: 100vh;
+  color: #111827;
+}
+
+/* --- LAYOUT HELPERS ------------------------------------------------------- */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.px-4,
+.sm\:px-6,
+.lg\:px-8 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* --- HEADER -------------------------------------------------------------- */
+header {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+header p {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.bg-green-100 {
+  background: #dcfce7;
+  color: #166534;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* --- HERO --------------------------------------------------------------- */
+.text-center {
+  text-align: center;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-gray-900 {
+  color: #111827;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+/* --- STATS GRID --------------------------------------------------------- */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.md\:grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bg-white {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+/* --- CARD WRAPPER ------------------------------------------------------- */
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* --- UPLOAD / CAMERA WRAPPER ------------------------------------------ */
+.border-dashed {
+  border-style: dashed;
+}
+
+.border-gray-300 {
+  border-color: #d1d5db;
+}
+
+.hover\:border-blue-500:hover {
+  border-color: #3b82f6;
+}
+
+.hover\:bg-blue-50:hover {
+  background: #eff6ff;
+}
+
+.start-btn,
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.start-btn {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  color: #fff;
+}
+
+.start-btn:hover {
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+}
+
+/* --- LOADING SPINNER ---------------------------------------------------- */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- PREDICTION BAR ----------------------------------------------------- */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f3f4f6;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.bar {
+  flex: 1;
+  height: 0.5rem;
+  background: #e5e7eb;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin: 0 0.5rem;
+}
+
+.bar div {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+}
+
+/* --- FOOTER ------------------------------------------------------------- */
+footer {
+  background: #111827;
+  color: #e5e7eb;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.875rem;
+}
+
+footer .text-gray-400 {
+  color: #9ca3af;
+}
+
+footer .text-gray-500 {
+  color: #6b7280;
+}
+
+/* --- RESPONSIVE --------------------------------------------------------- */
+@media (max-width: 768px) {
+  .md\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  .lg\:grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
