@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+ American Sign Language (ASL) Detection
+## Overview
+This project builds a deep learning model to detect and classify American Sign Language (ASL) hand gestures into 29 classes — the English alphabet A–Z, along with three special signs: SPACE, DELETE, and NOTHING. The model uses Convolutional Neural Networks (CNNs) to process images and identify the correct sign.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Objective
+To create an accurate ASL detection system that:
 
-## Available Scripts
+Accepts an image of a hand sign as input.
 
-In the project directory, you can run:
+Predicts the corresponding alphabet or action.
 
-### `npm start`
+Supports 29 different classes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Dataset
+Source: ASL Alphabet Dataset – Kaggle
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Train Set: Contains separate folders for each class (A–Z, SPACE, DELETE, NOTHING).
 
-### `npm test`
+Test Set: Contains sample test images for each class.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Total Classes: 29.
 
-### `npm run build`
+Example Folder Structure:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+dataset/
+│
+├── train/
+│   ├── A/
+│   ├── B/
+│   ├── ...
+│   ├── SPACE/
+│   ├── DELETE/
+│   └── NOTHING/
+│
+└── test/
+    ├── A_test.jpg
+    ├── ...
+## Technologies Used:
+Python
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+TensorFlow / Keras
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+OpenCV (optional, for image processing)
 
-### `npm run eject`
+NumPy, Pandas
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Matplotlib, Seaborn (visualization)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Scikit-learn (metrics)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Steps Followed
+Data Loading & Preprocessing
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Resizing images to 64x64.
 
-## Learn More
+Normalizing pixel values (0–1 range).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Data augmentation for better generalization.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Model Building
 
-### Code Splitting
+CNN architecture with Conv2D, MaxPooling, Flatten, and Dense layers.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Softmax activation for multi-class classification.
 
-### Analyzing the Bundle Size
+Training & Validation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Trained with categorical cross-entropy loss.
 
-### Making a Progressive Web App
+Monitored accuracy and loss on validation set.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Evaluation
 
-### Advanced Configuration
+Achieved high accuracy across all 29 classes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Tested with unseen data for real-world validation.
 
-### Deployment
+Model Saving
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Saved as .h5 file for later predictions.
 
-### `npm run build` fails to minify
+## Results
+Accuracy: ~95%+ on validation set (varies with hyperparameters).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Model generalizes well to unseen test images.
+
+##How to Run
+Clone the repository:
+
+
+git clone <your-repo-link>
+cd asl-detection
+Install dependencies:
+
+pip install -r requirements.txt
+Download dataset - 
+https://www.kaggle.com/datasets/grassknoted/asl-alphabet
+from Kaggle and place it inside dataset/ folder.
+
+Train the model:
+
+python train.py
+Run predictions:
+
+python predict.py --image path/to/image.jpg
+## Future Improvements
+Integrate real-time webcam detection.
+
+Build a Streamlit web app for interactive ASL translation.
+
+Extend dataset with more lighting and background variations.
+
